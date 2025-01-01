@@ -144,5 +144,20 @@ return {
         detached = vim.fn.has 'win32' == 0,
       },
     }
+    dap.adapters.python = {
+      type = 'executable',
+      command = 'python',
+      args = { '-m', 'debugpy.adapter' },
+    }
+    dap.configurations.python = {
+      {
+        type = 'python',
+        request = 'launch',
+        name = 'Launch File',
+
+        program = '${file}',
+        pythonPath = '/home/joshy/code/cool-discord-bot/.venv/bin/python',
+      },
+    }
   end,
 }
